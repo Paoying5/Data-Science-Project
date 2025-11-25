@@ -5,6 +5,7 @@ A technical, end-to-end README covering the full build—from data acquisition t
 ---
 
 ## Overview
+<img width="1000" height="667" alt="image" src="https://github.com/user-attachments/assets/bdafad19-bf76-4dae-b901-fc4d2b33706e" />
 
 This project designs and builds a web system to monitor, analyze, and forecast air quality across Vietnam using time-series deep learning (LSTM) and statistical baselines (ARIMA). It ingests weather and air pollution signals, performs rigorous EDA, trains forecasting and classification models, and exposes predictions via a Flask web API and interactive dashboard.
 
@@ -40,6 +41,8 @@ This project designs and builds a web system to monitor, analyze, and forecast a
 - **Validation:**  
   - **Dataset size:** 26,057 rows, 18 columns; index 0..26056; all non-null confirmed.  
   - **Sampling:** Random row inspection verifies plausibility and distribution ranges.
+<img width="718" height="355" alt="image" src="https://github.com/user-attachments/assets/f04666d0-dbb6-45af-82b3-ddc7a5039f19" />
+
 
 #### Exploratory data analysis (EDA)
 
@@ -60,6 +63,8 @@ This project designs and builds a web system to monitor, analyze, and forecast a
 ## Modeling and evaluation
 
 #### LSTM forecasting (PM2.5)
+<img width="761" height="179" alt="image" src="https://github.com/user-attachments/assets/59010407-9e91-4a1c-a4a4-67053e51eba2" />
+
 
 - **Preprocessing:**  
   - **Scaler:** MinMaxScaler into [0, 1].  
@@ -79,14 +84,22 @@ This project designs and builds a web system to monitor, analyze, and forecast a
 - **Metrics and fit:**  
   - **RMSE (test):** 0.295 (on inverse-scaled predictions).  
   - **R² (scatter fit):** 0.99 alignment vs ground truth.
+<img width="631" height="331" alt="image" src="https://github.com/user-attachments/assets/40ebf5b3-51ae-4b37-8da9-839d33bc0e59" />
+<img width="434" height="341" alt="image" src="https://github.com/user-attachments/assets/6ea9bea2-ea5c-4155-ba49-0819f736c56d" />
+
 
 #### ARIMA baseline (PM2.5)
 
 - **Config:** ARIMA(p=5, d=1, q=0) over PM2.5 series.  
 - **Split:** 80% train; 20% test.  
 - **Performance:** RMSE ≈ 35.47; forecast path near-flat vs volatile actuals (underfits nonlinearity and event spikes).
+<img width="599" height="280" alt="image" src="https://github.com/user-attachments/assets/ed187f32-d7d5-4e69-ae13-ed633e9a15bf" />
+
 
 #### AQI classification (Random Forest)
+
+<img width="444" height="343" alt="image" src="https://github.com/user-attachments/assets/87770dd6-0df6-455d-8bab-e2cc572dd2e5" />
+
 
 - **Target:** AQI categorical levels (e.g., Good, Moderate, Unhealthy).  
 - **Result:** Accuracy = 1.00; F1-score = 1.00 across classes; confusion matrix shows zero misclassifications.  
@@ -97,6 +110,9 @@ This project designs and builds a web system to monitor, analyze, and forecast a
 ## Web app and API
 
 #### Flask application
+
+<img width="761" height="339" alt="image" src="https://github.com/user-attachments/assets/59e127ae-ebfe-4c1a-90ba-005cbfb70990" />
+
 
 - **Model serving:** Load trained LSTM model and scaler at startup.
 - **Routes:**
